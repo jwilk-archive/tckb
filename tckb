@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Copyright © 2017 Jakub Wilk <jwilk@jwilk.net>
+# SPDX-License-Identifier: MIT
+
+set -e -u
+size=$(printf 'cols\nlines\n' | tput -S)
+y=${size#*'
+'}
+x=${size%'
+'*}
+printf "%0$((x*y))d" | sed -e 's/0/▒/g'
