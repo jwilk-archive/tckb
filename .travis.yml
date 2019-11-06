@@ -1,0 +1,15 @@
+dist: xenial
+language: generic
+addons:
+  apt:
+    packages:
+    - libipc-system-simple-perl
+    - tmux
+install:
+- python -m pip install --user pygments restructuredtext-lint
+script:
+- restructuredtext-lint --encoding=UTF-8 README
+- shellcheck tckb
+- prove -v
+
+# vim:ts=2 sts=2 sw=2 et
