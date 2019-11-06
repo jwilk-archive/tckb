@@ -34,7 +34,7 @@ run_tmux(qw(
 sleep(1);
 my $out = run_tmux('capture-pane', '-p');
 run_tmux('kill-session');
-like($out, qr/\A((▒)+\n)+Pane is dead\b/s, 'screen capture');
+like($out, qr/\A((▒){80}\n)+Pane is dead\b/s, 'screen capture');
 diag($out);
 
 # vim:ts=4 sts=4 sw=4 et
